@@ -7,6 +7,14 @@ interface Artist {
   listeners: string;
 }
 
+interface Response {
+  results?:{
+    artistmatches: {
+      artist: Array<Artist>
+    }
+  }
+}
+
 @Component({
   selector: 'app-artists',
   templateUrl: './artists.component.html',
@@ -23,7 +31,7 @@ artists = [];
     console.log('searchArtist');
     try{
       if (this.newArtist != ''){
-        const response = await this.artistService.searchArtist(this.newArtist);
+        const response: Response = await this.artistService.searchArtist(this.newArtist);
         console.log(response);
         this.artists = response.results.artistmatches.artist;
         this.newArtist = '';
