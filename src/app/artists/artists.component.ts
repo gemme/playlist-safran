@@ -7,7 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ArtistsComponent implements OnInit {
 
+  newArtist:string = '';
+
   constructor() { }
+
+  searchArtist(){
+    if(this.newArtist != ''){
+      console.log(this.newArtist);
+      this.newArtist = '';
+    } else {
+      console.log('artist can not be null');
+    }
+  }
 
   ngOnInit() {
   }
