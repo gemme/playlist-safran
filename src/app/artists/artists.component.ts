@@ -1,4 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { ArtistService } from './artist.service';
+
+interface Artist {
+  name: string;
+  url: string;
+  listeners: string;
+}
 
 @Component({
   selector: 'app-artists',
@@ -6,17 +13,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./artists.component.css']
 })
 export class ArtistsComponent implements OnInit {
+artists = [];
 
   newArtist = '';
 
-  constructor() { }
+  constructor(private artistService: ArtistService) { }
 
-  searchArtist(){
-    if (this.newArtist != ''){
-      console.log(this.newArtist);
-      this.newArtist = '';
-    } else {
-      console.log('You need to write an artist');
+  async searchArtist(){
+    console.log('searchArtist');
+    try{
+      if (this.newArtist != ''){
+        const response = await this.artistService.searchArtist(this.newArtist);
+        console.log(response);
+        this.artists = response.results.artistmatches.artist;
+        this.newArtist = '';
+      }
+    }catch(error) {
+      console.log(error);
     }
   }
 
