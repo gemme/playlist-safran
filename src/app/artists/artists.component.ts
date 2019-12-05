@@ -7,16 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ArtistsComponent implements OnInit {
 
-  newArtist:string = '';
+  newArtist = '';
 
   constructor() { }
 
   searchArtist(){
-    if(this.newArtist != ''){
+    if (this.newArtist != ''){
       console.log(this.newArtist);
       this.newArtist = '';
     } else {
-      console.log('artist can not be null');
+      console.log('You need to write an artist');
     }
   }
 
