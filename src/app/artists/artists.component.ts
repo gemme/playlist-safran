@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ArtistService } from './artist.service';
 
 interface Artist {
   name: string;
@@ -12,15 +13,25 @@ interface Artist {
   styleUrls: ['./artists.component.css']
 })
 export class ArtistsComponent implements OnInit {
-artists = [
-  {name: "Selena Gomez",
-   url: "https://www.last.fm/music/Selena+Gomez",
-   listeners: "1058868"},
-   {name: "Mi Banda El Mexicano",
-   url: "https://www.last.fm/music/Mi+Banda+El+Mexicano",
-   listeners: "10564"}];
+artists = [];
 
-  constructor() { }
+  newArtist = '';
+
+  constructor(private artistService: ArtistService) { }
+
+  async searchArtist(){
+    console.log('searchArtist');
+    try{
+      if (this.newArtist != ''){
+        const response = await this.artistService.searchArtist(this.newArtist);
+        console.log(response);
+        this.artists = response.results.artistmatches.artist;
+        this.newArtist = '';
+      }
+    }catch(error) {
+      console.log(error);
+    }
+  }
 
   ngOnInit() {
   }

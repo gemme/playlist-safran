@@ -1,5 +1,7 @@
 <p>artists works!</p>
 
+<input type="text" [(ngModel)]="newArtist">
+<button (click)="searchArtist()" [disabled]="newArtist == ''">Search artist: </button>
 <ul>
     <li *ngFor="let artist of artists">
         <span> Artist: <i><a href={{artist.url}} target="_blank">{{artist.name}}</a></i></span>
