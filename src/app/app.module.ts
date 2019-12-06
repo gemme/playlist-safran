@@ -9,6 +9,14 @@ import { SongsComponent } from './songs/songs.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ArtistsComponent } from './artists/artists.component';
 import { ArtistDetailsComponent } from './artist-details/artist-details.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { MatSliderModule } from '@angular/material/slider';
+import {MatInputModule} from '@angular/material/input';
+import {MatButtonModule} from '@angular/material/button';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatListModule} from '@angular/material/list';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -22,7 +30,14 @@ import { ArtistDetailsComponent } from './artist-details/artist-details.componen
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatSliderModule,
+    MatInputModule,
+    MatButtonModule,
+    MatGridListModule,
+    MatListModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

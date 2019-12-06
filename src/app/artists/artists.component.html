@@ -1,10 +1,13 @@
 <p>artists works!</p>
+<mat-form-field class="example-full-width">
+    <input matInput placeholder="Search artist" [(ngModel)]="newArtist">
+</mat-form-field>
+<button mat-stroked-button color="primary" (click)="searchArtist()" [disabled]="newArtist == ''">Search artist: </button>
 
-<input type="text" [(ngModel)]="newArtist">
-<button (click)="searchArtist()" [disabled]="newArtist == ''">Search artist: </button>
-<ul>
-    <li *ngFor="let artist of artists">
-        <span> Artist: <i><a routerLink="artist/{{artist.name}}" >{{artist.name}}</a></i></span>
+<mat-list>
+    <mat-list-item *ngFor="let artist of artists">
+        <mat-icon aria-hidden="false" aria-label="Example home icon">home</mat-icon>
+        <span> Artist: <i><a routerLink="artist/{{artist.name}}" >{{artist.name}} </a></i></span>
         <span> Listeners:<i>{{artist.listeners}}</i></span>
-    </li>
-</ul>
+    </mat-list-item>
+</mat-list>
