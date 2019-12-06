@@ -1,11 +1,13 @@
 <p>songs works!</p>
 
-<input type="text" [(ngModel)]="newSong">
-<button (click)="searchSong()">Search song: </button>
+<mat-form-field class="example-full-width">
+    <input matInput placeholder="Search Song" [(ngModel)]="newSong">
+</mat-form-field>
+<button mat-stroked-button color="warn" (click)="searchSong()">Search song: </button>
 
-<ul>
-    <li *ngFor="let song of songs">
-        <div>{{song.name}}</div>
-        <a href="{{song.url}}" target="_blank">{{song.artist}}</a>
-    </li>
-</ul>
+<mat-list>
+    <mat-list-item *ngFor="let song of songs">
+        <mat-icon aria-hidden="false" aria-label="Example home icon">home</mat-icon>
+        <span>{{song.name}}</span>
+        <a href="{{song.url}}" target="_blank">{{song.artist}}</a> </mat-list-item>
+</mat-list>

@@ -4,23 +4,39 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
+import { MatSliderModule } from '@angular/material/slider';
 import { AppComponent } from './app.component';
 import { SongsComponent } from './songs/songs.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ArtistsComponent } from './artists/artists.component';
+import { ArtistDetailsComponent } from './artist-details/artist-details.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatInputModule} from '@angular/material/input';
+import {MatButtonModule} from '@angular/material/button';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatListModule} from '@angular/material/list';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
     AppComponent,
     SongsComponent,
     NotFoundComponent,
-    ArtistsComponent
+    ArtistsComponent,
+    ArtistDetailsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    MatSliderModule,
+    MatButtonModule,
+    MatIconModule,
+    MatListModule,
+    MatGridListModule,
     FormsModule,
-    HttpClientModule
+    MatInputModule,
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
