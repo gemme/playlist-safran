@@ -8,19 +8,23 @@ import { AppComponent } from './app.component';
 import { SongsComponent } from './songs/songs.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ArtistsComponent } from './artists/artists.component';
+import { ArtistDetailsComponent } from './artist-details/artist-details.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
     AppComponent,
     SongsComponent,
     NotFoundComponent,
-    ArtistsComponent
+    ArtistsComponent,
+    ArtistDetailsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
